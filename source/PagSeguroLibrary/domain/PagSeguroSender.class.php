@@ -168,7 +168,7 @@ class PagSeguroSender
     public function addDocument($type, $value)
     {
         if ($type && $value) {
-            if (count($this->documents) == 0) {
+            if (!isset($this->documents) || count($this->documents) == 0) {
                 $document = new PagSeguroSenderDocument($type, $value);
                 $this->documents[] = $document;
             }
